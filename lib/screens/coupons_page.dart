@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:spacez/widgets/coupon_card.dart';
 
 class CouponsPage extends StatelessWidget {
   const CouponsPage({super.key});
@@ -77,6 +78,13 @@ class CouponsPage extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: [Color(0x22000000), Color(0x00000000)],
               ),
+            ),
+          ),
+          Expanded(
+            // 👈 REQUIRED
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+              child: Column(children: const [CouponCard()]),
             ),
           ),
         ],
