@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:spacez/widgets/show_simple_dialog.dart';
 
 class CouponCard extends StatelessWidget {
   const CouponCard({super.key});
@@ -24,8 +25,8 @@ class CouponCard extends StatelessWidget {
                     '₹6,900',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
@@ -37,7 +38,10 @@ class CouponCard extends StatelessWidget {
                 children: [
                   Container(
                     color: const Color(0xFFFFFBF7),
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 16,
+                    ),
                     child: _RightContent(),
                   ),
 
@@ -82,6 +86,7 @@ class _RightContent extends StatelessWidget {
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF4A4A4A),
+                height: 1,
               ),
             ),
             InkWell(
@@ -101,12 +106,18 @@ class _RightContent extends StatelessWidget {
                   ),
 
                   SizedBox(width: 6),
-                  Text(
-                    'Apply',
-                    style: TextStyle(
-                      color: Color(0xFF9E5C32),
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+                  InkWell(
+                    onTap: () {
+                      showSimpleDialog(context, 'Apply clicked');
+                    },
+                    child: Text(
+                      'Apply',
+                      style: TextStyle(
+                        color: Color(0xFF9E5C32),
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        height: 1,
+                      ),
                     ),
                   ),
                 ],
@@ -123,11 +134,16 @@ class _RightContent extends StatelessWidget {
         SizedBox(height: 12),
         Divider(color: Color(0xFFE0E0E0)),
         SizedBox(height: 8),
-        Text(
-          'Read more',
-          style: TextStyle(
-            color: Color(0xFF8A8A8A),
-            fontWeight: FontWeight.w600,
+        InkWell(
+          onTap: () {
+            showSimpleDialog(context, 'Read more clicked');
+          },
+          child: Text(
+            'Read more',
+            style: TextStyle(
+              color: Color(0xFF8A8A8A),
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ],
